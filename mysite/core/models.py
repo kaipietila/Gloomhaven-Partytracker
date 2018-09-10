@@ -10,6 +10,7 @@ class Party(models.Model):
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
     members = models.TextField()
+    # members probably going to change to get the members from available players but we'll see
 
     def __str__(self):
         return self.name
