@@ -20,4 +20,4 @@ def signup_view(request):
             return redirect("index")
     else:
         form = UserCreationForm()
-    return render(request, 'accounts/signup.html', {'form':form})
+    return render(request, 'accounts/signup.html', {'form': form})
