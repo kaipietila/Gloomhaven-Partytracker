@@ -6,4 +6,8 @@ def view_core(request):
 
 
 def view_party(request):
+<<<<<<< HEAD
     pass
+=======
+    return render(request, 'core/party.html')
+>>>>>>> adding-accounts

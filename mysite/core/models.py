@@ -9,8 +9,11 @@ class Party(models.Model):
     name = models.CharField(max_length=50)
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
+<<<<<<< HEAD
     members = models.TextField()
     # members probably going to change to get the members from available players but we'll see
+=======
+>>>>>>> adding-accounts
 
     def __str__(self):
         return self.name
