@@ -9,7 +9,6 @@ class Party(models.Model):
     name = models.CharField(max_length=50)
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
-    members = models.TextField()
 
     def __str__(self):
         return self.name
