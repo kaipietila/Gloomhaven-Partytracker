@@ -45,6 +45,11 @@
 				  <a class="nav-link active" href="/">Home</a>
 				  <a class="nav-link" href="/about/">About</a>
 				  <a class="nav-link" href="/admin/">Login Admin</a>
+				  <a class="nav-link" href="/accounts/login/">Log in</a>
+				  {% if user.is_authenticated %}
+				  <a class="nav-link" href="/accounts/logout/">Log out</a>
+				  	<p>Welcome {{ user.username }} !!!</p>
+				  {% endif %}
 			  </nav>
 			</div> <!--well bs-sidebar affix-->
 		  </div> <!--col-sm-2-->
