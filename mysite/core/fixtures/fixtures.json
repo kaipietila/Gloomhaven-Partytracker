@@ -1,0 +1,114 @@
+[
+  {
+    "model": "core.Character_class",
+    "pk": 1,
+    "fields": {
+      "name": "Brute"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 2,
+    "fields": {
+      "name": "Mindthief"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 3,
+    "fields": {
+      "name": "Spellweaver"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 4,
+    "fields": {
+      "name": "Scoundrel"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 5,
+    "fields": {
+      "name": "Cragheart"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 6,
+    "fields": {
+      "name": "Tinkerer"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 7,
+    "fields": {
+      "name": "Sun"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 8,
+    "fields": {
+      "name": "Three Spears"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 9,
+    "fields": {
+      "name": "Concentric Circles"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 10,
+    "fields": {
+      "name": "Moon/Eclipse"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 11,
+    "fields": {
+      "name": "Cthulhu"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 12,
+    "fields": {
+      "name": "Lightning Bolt"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 13,
+    "fields": {
+      "name": "Music Note"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 14,
+    "fields": {
+      "name": "Spiky/Angry Face"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 15,
+    "fields": {
+      "name": "Saw"
+    }
+  },
+  {
+    "model": "core.Character_class",
+    "pk": 16,
+    "fields": {
+      "name": "Triforce"
+    }
+  }
+]

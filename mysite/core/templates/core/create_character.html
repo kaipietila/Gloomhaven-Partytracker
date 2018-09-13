@@ -1,5 +1,13 @@
 {% extends "journal/header.html"%}
 
 {% block content %}
-<h2>Create character</h2>
+    <div class="create-party">
+      <h2>Create a character here</h2>
+      <form class="site-form" action="{% url 'core:createcharacter' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+      </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
 {% endblock %}
