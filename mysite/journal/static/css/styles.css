@@ -1,0 +1,27 @@
+.site-form{
+    margin-top:60px;
+    padding:20px;
+    border: 5px solid #7b4a20;
+    }
+
+.site-form input{
+    display: block;
+    padding: 10px;
+}
+
+.site-form select{
+    display: block;
+    padding: 10px;
+}
+
+.site-form textarea{
+    display: block;
+    padding: 10px;
+}
+
+.helptext, .helptext ul{
+    margin: 0 auto 20px;
+    color: #bbb;
+    font-size: 0.9em;
+    display: block;
+}

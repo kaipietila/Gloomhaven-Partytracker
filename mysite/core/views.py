@@ -15,7 +15,7 @@ def create_party(request):
             party = form.save(commit=False)
             party.creator = request.user
             party.save()
-            return redirect('core:home')
+            return redirect('core:overview')
     else:
         form = forms.CreatePartyForm()
     return render(request, 'core/create_party.html', {'form':form})
@@ -29,7 +29,7 @@ def create_character(request):
             char = form.save(commit=False)
             char.creator = request.user
             char.save()
-            return redirect('core:home')
+            return redirect('core:overview')
     else:
         form = forms.CreateCharForm()
     return render(request, 'core/create_character.html', {'form':form})
