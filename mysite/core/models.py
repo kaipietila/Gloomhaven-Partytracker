@@ -52,5 +52,6 @@ class Character(models.Model):
     character_class = models.ForeignKey(Character_class, default=None,
                                         on_delete=models.PROTECT)
 
+
     def __str__(self):
         return self.name

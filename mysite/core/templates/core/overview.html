@@ -5,10 +5,16 @@
   <div class="user_partys">
     {% for party in user_partys %}
       <div class="party">
-            <h2>{{party.name}}</h2>
+            <h2><a href="">{{party.name}}</a></h2>
             <p>Prosperity: {{party.prosperity}}</p>
             <p>Reputation: {{party.reputation}}</p>
+
+            <h4>Characters in party:</h4>
+            {% for character in all_characters %}
+              <p>{{character.name}}</p>
+            {% endfor %}
+     {% endfor %}
+
       </div>
-    {% endfor %}
   </div>
 {% endblock %}
