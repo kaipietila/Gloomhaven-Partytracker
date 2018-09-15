@@ -29,7 +29,7 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('journal:index')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})

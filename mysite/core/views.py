@@ -1,10 +1,18 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from . import forms
+from .models import Party, Character
+
 
 @login_required
 def view_core(request):
-    return render(request, 'core/home.html')
+    user_partys = []
+    all_partys = Party.objects.all().order_by('name')
+    for party in all_partys:
+        if party.creator == request.user:
+            user_partys.append(party)
+    return render(request, 'core/overview.html', {'user_partys':user_partys})
 
 
 @login_required

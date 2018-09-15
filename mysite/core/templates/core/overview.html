@@ -1,0 +1,14 @@
+{% extends "journal/secondary_header.html"%}
+
+{% block content %}
+  <h1>Your Parties:</h1>
+  <div class="user_partys">
+    {% for party in user_partys %}
+      <div class="party">
+            <h2>{{party.name}}</h2>
+            <p>Prosperity: {{party.prosperity}}</p>
+            <p>Reputation: {{party.reputation}}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
