@@ -8,11 +8,6 @@ def view_core(request):
 
 
 @login_required
-def view_party(request):
-    return render(request, 'core/party.html')
-
-
-@login_required
 def create_party(request):
     if request.method == 'POST':
         form = forms.CreatePartyForm(request.POST)

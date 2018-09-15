@@ -1,0 +1,6 @@
+
+
+.jumbotron jumbotron-fluid {
+  background-image: url("{% static 'banner.jpg' %}");
+  background-color: #ffc107 !important;
+}
