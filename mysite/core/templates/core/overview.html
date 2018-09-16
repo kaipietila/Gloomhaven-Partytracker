@@ -1,4 +1,5 @@
 {% extends "journal/secondary_header.html"%}
+{% load static %}
 
 {% block content %}
   <h1>Your Parties:</h1>
@@ -8,13 +9,42 @@
             <h2><a href="">{{party.name}}</a></h2>
             <p>Prosperity: {{party.prosperity}}</p>
             <p>Reputation: {{party.reputation}}</p>
-
-            <h4>Characters in party:</h4>
-            {% for character in all_characters %}
-              <p>{{character.name}}</p>
-            {% endfor %}
-     {% endfor %}
-
       </div>
-  </div>
+     {% endfor %}
+     <div class="container">
+       <div class="row">
+       </div>
+     </div>
+
+     <div class="container">
+       <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Party</h5>
+                  <p class="card-text">You can here create a new party. Note: To be able to create characters you need a party first.</p>
+                  <a href="{% url 'core:createparty' %}" class="btn btn-primary">Create Party</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Character</h5>
+                  <p class="card-text">If you have a party, but want to create a new charcter for that party do it here</p>
+                  <a href="{% url 'core:createcharacter' %}" class="btn btn-primary">Create Character</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Scenario</h5>
+                  <p class="card-text">You can create and add a new scenario to your ompleted scenarios list for your party</p>
+                  <a href="{% url 'core:createscenario' %}" class="btn btn-primary">Create Scenario</a>
+                </div>
+              </div>
+            </div>
+            </div>
+     </div>
 {% endblock %}

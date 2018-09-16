@@ -1,0 +1,14 @@
+{% extends "journal/secondary_header.html"%}
+{% load static %}
+
+{% block content %}
+      <div class="create-scenario">
+        <h2>Create a new Completed Scenario</h2>
+        <form class="site-form" action="{% url 'core:createscenario' %}" method="post">
+          {% csrf_token %}
+          {{ form }}
+        </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+      </div>
+{% endblock %}

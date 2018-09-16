@@ -5,11 +5,21 @@ from django.contrib.auth.models import User
 # item_id_validator = RegexValidator(r"^([0-9]{3},?){1,}$", "Enter the 3 digit item number")
 
 
+class Scenario(models.Model):
+    """
+    Basic scenario data. Parties can complete scenarios
+    """
+    name = models.CharField(max_length=150)
+    number = models.IntegerField()
+    creator = models.ForeignKey(User, on_delete=models.PROTECT, default=None)
+
+
 class Party(models.Model):
     name = models.CharField(max_length=50)
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
+    completed_scenarios = models.ForeignKey(Scenario, default=None, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.name
@@ -51,7 +61,6 @@ class Character(models.Model):
     party = models.ForeignKey(Party, default=None, on_delete=models.CASCADE)
     character_class = models.ForeignKey(Character_class, default=None,
                                         on_delete=models.PROTECT)
-
 
     def __str__(self):
         return self.name

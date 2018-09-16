@@ -9,11 +9,10 @@ from .models import Party, Character
 def view_core(request):
     user_partys = []
     all_partys = Party.objects.all().order_by('name')
-    all_characters = Character.objects.all()
     for party in all_partys:
         if party.creator == request.user:
             user_partys.append(party)
-    return render(request, 'core/overview.html', {'user_partys': user_partys, 'all_characters': all_characters})
+    return render(request, 'core/overview.html', {'user_partys': user_partys})
 
 
 @login_required
@@ -42,3 +41,17 @@ def create_character(request):
     else:
         form = forms.CreateCharForm()
     return render(request, 'core/create_character.html', {'form': form})
+
+
+@login_required
+def create_scenario(request):
+    if request.method =='POST':
+        form = forms.CreateScenarioForm(request.POST)
+        if form.is_valid():
+            completed_scenario = form.save(commit=False)
+            completed_scenario.creator = request.user
+            completed_scenario.save()
+            return redirect('core:overview')
+    else:
+        form = forms.CreateScenarioForm()
+    return render(request, 'core/create_scenario.html', {'form': form})
