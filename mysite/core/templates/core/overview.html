@@ -1,14 +1,13 @@
 {% extends "journal/secondary_header.html"%}
-{% load static %}
 
 {% block content %}
-  <h1>Your Parties:</h1>
+  <h1 class="display-2">Your Parties:</h1>
   <div class="user_partys">
     {% for party in user_partys %}
       <div class="party">
-            <h2><a href="">{{party.name}}</a></h2>
-            <p>Prosperity: {{party.prosperity}}</p>
-            <p>Reputation: {{party.reputation}}</p>
+            <h2 class="display-4"><a href="">{{party.name}}</a></h2>
+            <p class="lead">Prosperity: {{party.prosperity}}</p>
+            <p class="lead">Reputation: {{party.reputation}}</p>
       </div>
      {% endfor %}
      <div class="container">

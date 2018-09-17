@@ -1,14 +1,37 @@
 {% extends "journal/secondary_header.html"%}
 
 {% block content %}
+<div class="container">
+
   <div class="create-party">
     <h2>Create new party here</h2>
+    <p class="lead">You will later fill your party with characters!</p>
     <form class="site-form" action="{% url 'core:createparty' %}" method="post">
       {% csrf_token %}
-      {{ form }}
+      <p class="lead">Name</p>
+      {{ form.name }}
+      <p class="lead">What is your partys current prosperity?</p>
+      {{ form.prosperity }}
+      <p class="lead">What is your partys current reputation?</p>
+      {{ form.reputation }}
+      <p class="lead">What scenarios have you completed? If this is a new party
+      and you have not completed any enter 'None'</p>
+      <div class="row col-4">
+      {{ form.completed_scenarios }}
+        <button type="button" class="btn text-secondary btn-link">
+          <a href="{% url 'core:createscenario' %}">Create Scenario</a>
+        </button>
+      </div>
+
+      <br>
+      </br>
+
+    <div class="row col-4">
+      <button type="submit" class="btn btn-dark">Create</button>
     </div>
-      <button type="submit" class="btn btn-primary">Create</button>
     </form>
   </div>
+
+</div>
 
 {% endblock %}
