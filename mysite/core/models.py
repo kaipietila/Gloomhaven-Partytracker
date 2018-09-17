@@ -11,7 +11,7 @@ class Scenario(models.Model):
     """
     name = models.CharField(max_length=150)
     number = models.IntegerField()
-    creator = models.ForeignKey(User, on_delete=models.PROTECT, default=None)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name
@@ -20,7 +20,7 @@ class Party(models.Model):
     name = models.CharField(max_length=50)
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
-    creator = models.ForeignKey(User, on_delete=models.PROTECT)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
     completed_scenarios = models.ForeignKey(Scenario, default=None, on_delete=models.DO_NOTHING)
 
     def __str__(self):
@@ -63,6 +63,7 @@ class Character(models.Model):
     party = models.ForeignKey(Party, default=None, on_delete=models.CASCADE)
     character_class = models.ForeignKey(Character_class, default=None,
                                         on_delete=models.PROTECT)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name

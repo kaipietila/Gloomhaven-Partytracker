@@ -4,26 +4,26 @@
 {% block content %}
 <div class="container">
 
-      <div class="create-scenario">
-        <div class="row col-12">
+          <div class="create-scenario">
+            <div class="row col-12">
 
-        <h2>Create a new Completed Scenario</h2>
-        <p class="lead">You can here add completed scenarios to be able
-          to add them to your party, you can also create scenarios and add them later </p>
-        <form class="site-form" action="{% url 'core:createscenario' %}" method="post">
-          {% csrf_token %}
-          <p class="lead">What is the scenario called?</p>
-          {{ form.name }}
-          <p class="lead">What is the scenario number?</p>
-          {{ form.number }}
-        </div>
-        <br>
-      </br>
-          <div class="row col-4 margin-left">
-          <button type="submit" class="btn btn-dark">Create</button>
-          </div>
-        </form>
-        </div>
+            <h2>Create a new Completed Scenario</h2>
+            <p class="lead">You can here add completed scenarios to be able
+              to add them to your party, you can also create scenarios and add them later </p>
+            <form class="site-form" action="{% url 'core:createscenario' %}" method="post">
+              {% csrf_token %}
+              <p class="lead">What is the scenario called?</p>
+              {{ form.name }}
+              <p class="lead">What is the scenario number?</p>
+              {{ form.number }}
+            </div>
+            <br>
+          </br>
+              <div class="row col-4 margin-left">
+              <button type="submit" class="btn btn-dark">Create</button>
+              </div>
+            </form>
+            </div>
       </div>
-  </div>
+</div>
 {% endblock %}
