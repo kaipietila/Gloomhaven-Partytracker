@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from . import forms
@@ -13,6 +14,17 @@ def view_core(request):
         if party.creator == request.user:
             user_partys.append(party)
     return render(request, 'core/overview.html', {'user_partys': user_partys})
+
+
+def view_party(request, party_id):
+    """core overview you can get to each parties own view"""
+    try:
+        party = Party.objects.get(pk = party_id)
+        party_characters = Character.objects.filter(party_id = party.pk)
+        characters = party_characters
+    except:
+        raise Http404("Party does not exist")
+    return render(request, 'core/party_detail.html', {'characters':characters})
 
 
 @login_required
