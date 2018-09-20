@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.views.generic import DetailView
 from . import forms
 from .models import Party, Character
 
@@ -67,3 +68,13 @@ def create_scenario(request):
     else:
         form = forms.CreateScenarioForm()
     return render(request, 'core/create_scenario.html', {'form': form})
+
+
+class PartyDetail(DetailView):
+
+    model = Party
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['character_list'] = Character.objects.filter(party:)
+        return context
