@@ -26,6 +26,9 @@ class Party(models.Model):
     def __str__(self):
         return self.name
 
+     def get_absolute_url(self):
+        return reverse('party-detail', kwargs={'pk': self.pk})
+
 
 class Character_class(models.Model):
     """
