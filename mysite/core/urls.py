@@ -9,4 +9,6 @@ urlpatterns = [
     path('party/create', views.create_party, name='createparty'),
     path('scenario/create', views.create_scenario, name='createscenario'),
     re_path('party/(?P<party_id>[0-9]{1,})/', views.view_party, name='partydetail'),
+    re_path('character/(?P<character_id>[0-9]{1,})/', views.UpdateCharacter.as_view(),
+    name='character_update'),
 ]

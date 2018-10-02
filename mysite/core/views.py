@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.views.generic import DetailView
+from django.views.generic import UpdateView
 from . import forms
 from .models import Party, Character
 
@@ -17,6 +17,7 @@ def view_core(request):
     return render(request, 'core/overview.html', {'user_partys': user_partys})
 
 
+@login_required
 def view_party(request, party_id):
     """core overview you can get to each parties own view"""
     try:
@@ -70,6 +71,10 @@ def create_scenario(request):
     return render(request, 'core/create_scenario.html', {'form': form})
 
 
-@login_required
-def update_character(request):
-    pass
+@method_decorator(login_required, name='dispatch')
+class UpdateCharacter(UpdateView):
+    model = Character
+    template_name = 'character_update.html'
+
+    def get(self, request, character_id, *args, **kwargs)
+    form =
