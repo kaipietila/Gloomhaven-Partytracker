@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# item ID validator not in use now.
-# item_id_validator = RegexValidator(r"^([0-9]{3},?){1,}$", "Enter the 3 digit item number")
-
 
 class Scenario(models.Model):
     """
@@ -17,6 +14,9 @@ class Scenario(models.Model):
         return self.name
 
 class Party(models.Model):
+    """
+    Party object that contains the characters.
+    """
     name = models.CharField(max_length=50)
     prosperity = models.IntegerField()
     reputation = models.CharField(max_length=50)
@@ -26,13 +26,11 @@ class Party(models.Model):
     def __str__(self):
         return self.name
 
-     def get_absolute_url(self):
-        return reverse('party-detail', kwargs={'pk': self.pk})
-
 
 class Character_class(models.Model):
     """
-    To make it easier to choose charcter class in the character creation
+    To make it easier to choose charcter class in the character creation.
+    Data added to the db by default
     """
     name = models.CharField(max_length=50)
 
@@ -42,7 +40,7 @@ class Character_class(models.Model):
 
 class Item(models.Model):
     """
-    Character Items, Using mainly the number to add to the character class
+    Character Items, Using mainly the number to add to the character
     """
     name = models.CharField(max_length=50)
     number = models.IntegerField()

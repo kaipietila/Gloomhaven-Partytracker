@@ -5,7 +5,7 @@
   <div class="user_partys">
     {% for party in user_partys %}
       <div class="party">
-            <h2 class="display-4"><a href="">{{party.name}}</a></h2>
+            <h2 class="display-4"><a href=" {% url 'core:partydetail' party.pk %}">{{party.name}}</a></h2>
             <p class="lead">Prosperity: {{party.prosperity}}</p>
             <p class="lead">Reputation: {{party.reputation}}</p>
       </div>

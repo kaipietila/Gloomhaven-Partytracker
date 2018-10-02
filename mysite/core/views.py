@@ -52,7 +52,7 @@ def create_character(request):
             char.save()
             return redirect('core:overview')
     else:
-        form = forms.CreateCharForm()
+        form = forms.CreateCharForm(request.user)
     return render(request, 'core/create_character.html', {'form': form})
 
 
@@ -70,11 +70,6 @@ def create_scenario(request):
     return render(request, 'core/create_scenario.html', {'form': form})
 
 
-class PartyDetail(DetailView):
-
-    model = Party
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['character_list'] = Character.objects.filter(party:)
-        return context
+@login_required
+def update_character(request):
+    pass

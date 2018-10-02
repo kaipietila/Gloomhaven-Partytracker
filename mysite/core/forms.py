@@ -1,5 +1,5 @@
-from django.forms import ModelForm
-from . import models
+from django.forms import ModelForm, CheckboxSelectMultiple
+from core import models
 
 class CreatePartyForm(ModelForm):
     class Meta:
@@ -10,6 +10,10 @@ class CreatePartyForm(ModelForm):
             'reputation',
             'completed_scenarios',
             ]
+        widgets = {
+        'completed_scenarios': CheckboxSelectMultiple(),
+        }
+
 
 
 class CreateCharForm(ModelForm):
@@ -25,11 +29,13 @@ class CreateCharForm(ModelForm):
             'party',
             'character_class',
             ]
+        widgets = {
+        'items': CheckboxSelectMultiple(),
+        }
 
-
-        def __init__(self, creator, *args, **kwargs):
-            super(CreateCharForm, self).__init__(*args, **kwargs)
-            self.fields['party'].queryset=Party.objects.filter(creator=creator)
+    def __init__(self, user, *args, **kwargs):
+        super(CreateCharForm, self).__init__(*args, **kwargs)
+        self.fields['party'].queryset = Party.objects.filter(user=creator)
 
 
 class CreateScenarioForm(ModelForm):
