@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from django.views.generic import UpdateView
 from . import forms
@@ -74,7 +75,5 @@ def create_scenario(request):
 @method_decorator(login_required, name='dispatch')
 class UpdateCharacter(UpdateView):
     model = Character
-    template_name = 'character_update.html'
-
-    def get(self, request, character_id, *args, **kwargs)
-    form =
+    template= 'character_update.html'
+    fields = ['experience','level', 'gold', 'items', 'perks']
