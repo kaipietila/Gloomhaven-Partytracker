@@ -33,10 +33,6 @@ class CreateCharForm(ModelForm):
         'items': CheckboxSelectMultiple(),
         }
 
-    def __init__(self, user, *args, **kwargs):
-        super(CreateCharForm, self).__init__(*args, **kwargs)
-        self.fields['party'].queryset = Party.objects.filter(user=creator)
-
 
 class CreateScenarioForm(ModelForm):
     class Meta:

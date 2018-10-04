@@ -54,7 +54,7 @@ def create_character(request):
             char.save()
             return redirect('core:overview')
     else:
-        form = forms.CreateCharForm(request.user)
+        form = forms.CreateCharForm()
     return render(request, 'core/create_character.html', {'form': form})
 
 
