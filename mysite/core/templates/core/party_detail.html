@@ -4,6 +4,7 @@
 <div class="container">
   <h1 class="display-1"></h1>
     <div class="party_detail">
+      <h2>Characters in {{party}}</h2>
       {% for character in characters %}
       <div class="container">
 
@@ -19,7 +20,7 @@
           <div class="card-body">
             <h5 class="card-title">Character</h5>
             <p class="card-text">Create a new character for this party here</p>
-            <a href="{% url 'core:createcharacter'  %}" class="btn btn-primary">Create Character</a>
+            <a href="{% url 'core:createcharacter' %}" class="btn btn-primary">Create Character</a>
           </div>
         </div>
       </div>

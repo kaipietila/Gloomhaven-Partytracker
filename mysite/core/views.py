@@ -27,7 +27,8 @@ def view_party(request, party_id):
         characters = party_characters
     except:
         raise Http404("Party does not exist")
-    return render(request, 'core/party_detail.html', {'characters':characters})
+    return render(request, 'core/party_detail.html', {'characters':characters,
+    'party': party})
 
 
 @login_required
