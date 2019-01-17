@@ -29,14 +29,16 @@ class Party(models.Model):
 
 class Character_class(models.Model):
     """
-    To make it easier to choose charcter class in the character creation.
+    To make it easier to choose character class in the character creation.
     Data added to the db by default
     """
     name = models.CharField(max_length=50)
 
-    def __str__(self):
+    def __repr__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
 
 class Item(models.Model):
     """
@@ -45,6 +47,9 @@ class Item(models.Model):
     name = models.CharField(max_length=50)
     number = models.IntegerField()
     item_type = models.CharField(max_length=50)
+
+    def __repr__(self):
+        return self.name
 
     def __str__(self):
         return self.name
@@ -66,8 +71,8 @@ class Character(models.Model):
                                         on_delete=models.PROTECT)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
-    def __str__(self):
+    def __repr__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse('character_update', kwargs={'pk': self.pk})
+    def __str__(self):
+        return self.name
