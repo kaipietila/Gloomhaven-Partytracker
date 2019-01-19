@@ -1,0 +1,16 @@
+{% extends "journal/header.html"%}
+
+
+{% block content %}
+<
+<h1>Articles</h1>
+<ul>
+{% for entry in entry_list %}
+    <li>{{ entry }}</li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
